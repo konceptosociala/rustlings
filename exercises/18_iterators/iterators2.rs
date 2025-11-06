@@ -22,7 +22,7 @@ fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
 // slices. Return a single string.
 // ["hello", " ", "world"] -> "Hello World"
 fn capitalize_words_string(words: &[&str]) -> String {
-    words.iter().filter(|s| !s.trim().is_empty()).map(|c| capitalize_first(c)).collect()
+    words.iter().map(|c| if *c == " " { " ".to_string() } else { capitalize_first(c) }).collect()
 }
 
 fn main() {
